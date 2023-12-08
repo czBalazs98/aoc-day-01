@@ -1,6 +1,6 @@
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.nio.file.Path;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -8,18 +8,18 @@ import java.util.Map;
 
 public class CalibrationValueCalculator {
 
-	private final String calibrationDocumentPath;
+	private final Path calibrationDocumentPath;
 
 	private final Map<String, Integer> wordsMap = Map.of("one", 1, "two", 2, "three", 3, "four", 4,
 			"five", 5, "six", 6, "seven", 7, "eight", 8, "nine", 9);
 
-	public CalibrationValueCalculator(String calibrationDocumentPath) {
+	public CalibrationValueCalculator(Path calibrationDocumentPath) {
 		this.calibrationDocumentPath = calibrationDocumentPath;
 	}
 
 	public Integer calculate() {
 		try {
-			List<String> lines = Files.readAllLines(Paths.get(calibrationDocumentPath));
+			List<String> lines = Files.readAllLines(calibrationDocumentPath);
 			int sum = 0;
 
 			for ( String line : lines ) {

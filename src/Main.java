@@ -1,7 +1,10 @@
+import java.nio.file.Paths;
+
 public class Main {
 	public static void main(String[] args) {
+
 		CalibrationValueCalculator calibrationValueCalculator = new CalibrationValueCalculator(
-						"C:\\Users\\bczmarko\\Desktop\\own projects\\advent-of-code\\aoc-day-01\\src\\input2.txt");
+				Paths.get("src/input2.txt").toAbsolutePath());
 		System.out.println(calibrationValueCalculator.calculate());
 	}
 }
